@@ -1,0 +1,112 @@
+@import-normalize ;
+
+@import "~bootstrap-scss/functions";
+@import "~bootstrap-scss/variables";
+@import "~bootstrap-scss/mixins";
+@import "~bootstrap-scss/bootstrap-reboot";
+@import "~bootstrap-scss/bootstrap-grid";
+@import "~bootstrap-scss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+$accentColor: #ffac02;
+$headingColor: #002866;
+$textColor: #4D6995;
+@function em($pixels, $context: 16) {
+    @return #{$pixels/$context}em;
+}
+
+@mixin placeholder-style($color) {
+    /* WebKit, Edge */
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    /* Firefox 4-18 */
+    &:-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+    /* Firefox 19+ */
+    &::-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+    /* IE 10-11 */
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    /* Edge */
+    &::-ms-input-placeholder {
+        color: $color;
+    }
+    /* MODERN BROWSER */
+    &::placeholder {
+        color: $color;
+    }
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Lato, sans-serif;
+    color: $textColor;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    font-size: 16px;
+    //line-height: em(28, 16);
+}
+
+h1, h2, h3, h4, h5, h6, a {
+    color: $headingColor;
+    font-weight: bold;
+    line-height: 1.2;
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: .3s;
+    &:hover{
+        text-decoration: none;
+        opacity: .9;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+.be_carousel_testimonial{
+    padding-top: 40px !important;
+    margin-top: -40px !important;
+    //background-color: #fff !important;
+    .swiper-pagination-fraction , .swiper-pagination-fraction > span{
+        font-size: 16px;
+        line-height: 36px;
+        font-weight: 400;
+        color: #666D86;
+    }
+    .swiper-pagination-fraction{
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
+        padding-left: 184px;
+        bottom: 30px;
+        span{
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -ms-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            &.swiper-pagination-total{
+                margin-left: 5px;
+            }
+        }
+        span.swiper-pagination-current{
+            font-size: 24px;
+            margin-right: 5px;
+        }
+        
+    }
+}
