@@ -1,6 +1,6 @@
 import { Div, Heading, Img, Section, Text } from "../../styles/base.style";
 import CountUp from 'react-countup';
-import { memo } from "react";
+import { memo, useRef  } from "react";
 
 import SwiperCore, { Pagination, A11y, Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,6 +17,7 @@ import "../../../index.scss";
 // Import Swiper styles
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/navigation/navigation.scss'; 
 import 'swiper/components/effect-fade/effect-fade.scss';
 import 'swiper/components/a11y/a11y.scss';
 
@@ -35,8 +36,10 @@ function SectionTrusteds({trusted, general}) {
         backgroundSize: 'cover',
         zIndex: '8', 
         width: '100%',
-
     }
+
+    const prevRef = useRef(null);
+    const nextRef = useRef(null);
    
     let emlTrusted = list_trusted.map((item, index) =>{
         if(item == undefined) return  false;
@@ -89,6 +92,7 @@ function SectionTrusteds({trusted, general}) {
                 <Div position="absolute" right="30px" bottom="30px">  <Img src={iconQuocte} alt="icon" minWidth="78px"/> </Div>
             </Div>
         </SwiperSlide>
+
         return result;
     });
 
@@ -106,13 +110,19 @@ function SectionTrusteds({trusted, general}) {
                         <Div className="row" mb="50px"> {emlTrusted} </Div>
 
                         <Div backgroundColor="#fff" display={'flex'}> 
-                            <Swiper autoHeight={false} pagination={{ type: "fraction",}} 
-                                    navigation={true} modules={[Navigation, Pagination, A11y]}
-                                    loop={true} slidesPerView={1} spaceBetween={0}
-                                    className="be_carousel_testimonial" >
-
+                            <Swiper modules={[Navigation, Pagination, A11y]} 
+                                    autoHeight={false} 
+                                    pagination={{ type: "fraction",}} 
+                                    navigation
+                                    loop={true} 
+                                    slidesPerView={1} 
+                                    spaceBetween={0}
+                                    scrollbar={{ draggable: true }}
+                                    onSwiper={(swiper) => console.log(swiper)}
+                                    onSlideChange={() => console.log('slide change')}
+                                    className="be_carousel_testimonial" 
+                            >
                                 {elmSwiperSlide}
-                                
                             </Swiper>
                             
                         </Div>

@@ -57,6 +57,31 @@ transition: .3s;
 }
 `;
 
+
+const ButtonBlueGray = styled('a')`
+${base};
+
+font-size: 16px;
+line-height: 150%;
+text-align: center;
+text-transform: uppercase;
+background: #6FD3E2;
+border-radius: 10px;
+color: #000C36;
+padding: 12px 48px;
+display: inline-block;
+font-weight: 800;
+text-decoration: none;
+transition: .3s;
+box-shadow: 0px 6px 10px rgba(77, 79, 209, 0.25);
+border-radius: 10px;
+&:hover{
+    background: #6FD3E2;
+    color: #000C36;
+    text-decoration: none;
+}
+`;
+
 const ButtonPurchaseTransparent = styled(ButtonPurchase)`
 background: transparent;
 color: white;
@@ -68,5 +93,5 @@ border: 2px solid;
 }
 `;
 
-export { Wrapper, LinkPurchase, TrustItem, ButtonPurchase, ButtonPurchaseTransparent }
+export { Wrapper, LinkPurchase, TrustItem, ButtonPurchase, ButtonPurchaseTransparent, ButtonBlueGray }
 

@@ -8,7 +8,7 @@ import { Div, GlobalStyle } from "../../styles/base.style";
 import SectionHero from "../../components/SectionHero";
 import SectionBestSeller from "../../components/SectionBestSeller";
 import SectionTrusteds from "../../components/SectionTrusteds";
-// import SectionAbout from "../../components/SectionAbout";
+import SectionAbout from "../../components/SectionAbout";
 // import SectionMobile from "../../components/SectionMobile";
 // import SectionSpeed from "../../components/SectionSpeed";
 // import SectionFooter from "../../components/SectionFooter";
@@ -52,8 +52,8 @@ const Home = () => {
 
         return () => mounted = false;
     }, []);
-    console.log(data);
-    // console.log("hihi")
+    //console.log(data);
+    // // console.log("hihi")
     return (
         <ThemeProvider theme={{
             fontFamily: "'Ubuntu', sans-serif",
@@ -70,6 +70,7 @@ const Home = () => {
                     <SectionHero {...data} />
                     <SectionBestSeller {...data} />
                     <SectionTrusteds {...data} />
+                    <SectionAbout {...data} />
                 </Wrapper>
             }
         </ThemeProvider>
